@@ -17,7 +17,7 @@ const Header = () => {
             {user?.email && <span>Welcome, {user.email}</span>}
             {user?.email ? <button onClick={handleSignOut} className="ml-3 btn btn-outline btn-accent rounded-md">Log out</button>
             :
-            <button><Link to='/login' className="ml-3 btn btn-outline btn-accent rounded-md">Login</Link></button>
+            <button><Link to='/login' className=" hidden ml-3 btn btn-outline btn-accent rounded-md">Login</Link></button>
             }
         </div>
         <div className="flex-none">

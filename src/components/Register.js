@@ -5,7 +5,7 @@ import { AuthContext } from '../contexts/UserContext';
 
  
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, googleSignIn} = useContext(AuthContext)
     const registerSubmit= event =>{
         event.preventDefault();
         const form = event.target;
@@ -22,6 +22,14 @@ const Register = () => {
         })
         .catch(error => console.error(error))
 
+    }
+    const handleGoogle= () =>{
+        googleSignIn()
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error=> console.error(error))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -55,6 +63,7 @@ const Register = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Register</button>
         </div>
+      <button onClick={handleGoogle} className="btn btn-primary">Google Sign In</button>
       </form>
     </div>
   </div>
